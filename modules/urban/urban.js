@@ -7,10 +7,9 @@ exports.define = word => {
     result.first(json => {
       try {
         // To make it look beautiful in discord
-        const definition = `\`\`\`${json.word}\n\n${
+        const definition = `\`\`\`\n${json.word}\n\n${
           json.definition
         }\n\nExample: ${json.example}\`\`\``;
-
         resolve(definition);
       } catch (e) {
         reject("Word not found");
