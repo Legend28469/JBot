@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const urban = require("./modules/urban/urban");
 const oracle = require("./modules/oracle/oracle");
+const imageLookup = require("./modules/imageLookup/imageLookup");
 const Discord = require("discord.js");
 const bot = new Discord.Client();
 
@@ -30,6 +31,8 @@ bot.on("message", msg => {
       urban.define(query).then(definition => msg.reply(definition));
     } else if (command === "oracle") {
       msg.reply(oracle.foresight());
+    } else if (command === "show") {
+      imageLookup.showImage(query).then(image => msg.reply(image));
     }
   }
 });
